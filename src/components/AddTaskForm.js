@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { generateId } from '../utilities/generateId';
 
 export const AddTaskForm = (props) => {
   const [details, setDetails] = useState("");
@@ -17,7 +18,9 @@ export const AddTaskForm = (props) => {
     if (details && due) {
       const newTask = {
         details,
-        due
+        due,
+        done: false,
+        id: generateId()
       };
       console.log(newTask);
       props.addTask(newTask);

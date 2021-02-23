@@ -10,6 +10,10 @@ const dayOfWeek = [
   "Sunday"
 ]
 
-export const parseDayOfWeek = () => {
-  return (dayOfWeek[today.getDay()]);
-} 
+export const parseDayOfWeek = () => (
+  dayOfWeek[today.getDay()]
+); 
+
+export const calcDaysLeft = (due) => (
+  Math.ceil((new Date(due).getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+);
