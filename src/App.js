@@ -5,17 +5,15 @@ import { AddTaskForm } from './components/AddTaskForm';
 import { Task } from './components/Task';
 
 function App() {
-  const [count, setCount] = useState(0);
   const [tasks, setTasks] = useState([]);
+  const [count, setCount] = useState(0);
 
   const addTask = (newTask) => {
     setTasks(prev => [newTask, ...prev]);
-    setCount(prev => prev + 1);
   }
 
   const deleteTask = (taskId) => {
     setTasks(prev => prev.filter(task => task.id !== taskId));
-    setCount(prev => prev - 1);
   }
 
   const toggleDone = (taskId) => {
@@ -24,6 +22,10 @@ function App() {
       done: !task.done
     } : task))
   };
+
+  useEffect(() => {
+    setCount(() => tasks.filter(task => !task.done).length)  
+  }, [tasks])
 
   return (
     <div className="App">

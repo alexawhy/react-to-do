@@ -57,7 +57,7 @@ input:focus {
 
 /* AddTaskForm */
 .add-task {
-  margin: 0 auto;
+  margin: 2em auto;
   display: flex;
   flex-direction: column;
   width: 20em;
@@ -111,6 +111,10 @@ button:hover, input[type="submit"]:hover {
   width: 25%;
   max-width: 18em;
   margin: 1em;
+}
+
+.task:hover {
+  cursor: pointer;
 }
 
 .close {
