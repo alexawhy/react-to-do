@@ -2,7 +2,7 @@ import React from 'react';
 import { calcDaysLeft } from '../utilities/date';
 
 export const Task = (props) => {
-  const { deleteTask } = props;
+  const { toggleDone, deleteTask } = props;
   const { details, due, done, id } = props.task;
   const daysLeft = calcDaysLeft(due);
 
@@ -15,15 +15,15 @@ export const Task = (props) => {
   }
 
   return (
-    <li>
-      <button onClick={toggleDone}>toggle</button>
+    <li onClick={handleToggle} className={done ? "task done" : "task"}>
+      <button class="close"><i class="fas fa-times" onClick={handleDeleteTask}></i></button>
       <p>{details}</p>
       <p>{due}</p>
-      <p>{ !done && daysLeft > 1 ? `${daysLeft} days left` 
-        : daysLeft === 1 ? "1 day left!"
-        : daysLeft === 0 ? "Due Today!!"
+      <p>{ done ? ""
+        : !done && daysLeft > 1 ? `${daysLeft} days left` 
+        : !done && daysLeft === 1 ? "1 day left!"
+        : !done && daysLeft === 0 ? "Due Today!!"
         : "It's too late :("}</p>
-      <button onClick={handleDeleteTask}>Delete Task</button>
     </li>
   )
 }

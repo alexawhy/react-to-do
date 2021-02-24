@@ -30,7 +30,7 @@ export const AddTaskForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add-task">
       <input
         type="text"
         value={details}
@@ -38,13 +38,15 @@ export const AddTaskForm = (props) => {
         name="details"
         onChange={handleDetailsChange}
         />
-      <input
-        type="date"
-        value={due}
-        name="due"
-        onChange={handleDueChange}
-        />
-      <input type="submit" disabled={!details || !due}/>
+      <div className="add-task-bottom">
+        <input
+          type="date"
+          value={due}
+          name="due"
+          onChange={handleDueChange}
+          />
+        <input type="submit" disabled={!details || !due}/>
+      </div>
     </form>
   )
 }

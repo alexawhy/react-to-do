@@ -1,3 +1,14 @@
+body, h1, p, form, input {
+  font-family: 'Courier New', Courier, monospace;
+  appearance: none;
+  outline: none;
+}
+
+input:focus {
+  appearance: none;
+  outline: none;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +46,84 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Greetings */
+
+.greetings {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* AddTaskForm */
+.add-task {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 20em;
+  padding: 1em;
+  background-color: rgb(131, 192, 187);
+  border-radius: 0.5em;
+}
+
+.add-task-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.add-task input {
+  height: 2em;
+  border-radius: 1em;
+  border: none;
+  padding: 0 0.5em;
+}
+
+.add-task input[type="submit"] {
+  border-radius: 1em;
+  border: none;
+  /* font-size: 1em; */
+  padding: 0.5em 1.5em;
+}
+
+li.done {
+  text-decoration: line-through;
+}
+
+button:hover, input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+/* Task */
+
+.tasks {
+  display: flex;
+  margin-top: 3em;
+}
+
+.task {
+  display: block;
+  /* border: 1px solid rgb(64, 124, 119); */
+  box-shadow: 0.2em 0.2em 0.5em 0.1em rgba(64, 124, 119, 0.2);
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 25%;
+  max-width: 18em;
+  margin: 1em;
+}
+
+.close {
+  position: relative;
+  left: 40%;
+  top: 0%;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  background-color: rgb(64, 124, 119);
+  border: none;
+}
+
+.close i {
+  color: white;
 }

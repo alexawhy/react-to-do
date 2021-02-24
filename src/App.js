@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Greetings } from './components/Greetings';
 import { AddTaskForm } from './components/AddTaskForm';
-import { Task } from './components/Task'
+import { Task } from './components/Task';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,8 +19,11 @@ function App() {
   }
 
   const toggleDone = (taskId) => {
-    
-  }
+    setTasks(prev => prev.map(task => task.id === taskId ? {
+      ...task,
+      done: !task.done
+    } : task))
+  };
 
   return (
     <div className="App">
@@ -31,6 +34,7 @@ function App() {
           <Task 
             task={task} 
             key={task.id}
+            toggleDone={toggleDone}
             deleteTask={deleteTask}/>
         ))}
       </ul>
